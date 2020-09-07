@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_submitProjectFragment"
             app:destination="@id/submitProjectFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_listLearnersFragment"
+            app:destination="@id/listLearnersFragment" />
     </activity>
 
     <fragment
@@ -20,4 +23,9 @@
         android:name="com.mouhsinbourqaiba.android.gadsleadersboard.view.submitproject.SubmitProjectFragment"
         android:label="fragment_submit_project"
         tools:layout="@layout/fragment_submit_project" />
+    <fragment
+        android:id="@+id/listLearnersFragment"
+        android:name="com.mouhsinbourqaiba.android.gadsleadersboard.view.home.learner.ListLearnersFragment"
+        android:label="fragment_list_learners"
+        tools:layout="@layout/fragment_list_learners" />
 </navigation>
