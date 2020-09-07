@@ -10,6 +10,12 @@ import com.mouhsinbourqaiba.android.gadsleadersboard.model.LearningLeader
 
 class LearnerListAdapter(private val learnerList: ArrayList<LearningLeader>): RecyclerView.Adapter<LearnerListAdapter.LearnerViewHolder>() {
 
+    fun updateLearnersList(newAnimalList: List<LearningLeader>) {
+        learnerList.clear()
+        learnerList.addAll(newAnimalList)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LearnerViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = DataBindingUtil.inflate<ItemLearningLeaderBinding>(inflater, R.layout.item_learning_leader, parent, false)

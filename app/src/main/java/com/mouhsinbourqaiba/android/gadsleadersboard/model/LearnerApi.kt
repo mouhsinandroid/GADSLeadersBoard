@@ -6,7 +6,6 @@ import retrofit2.http.GET
 
 interface LearnerApi {
 
-    @FormUrlEncoded
     @GET("/api/hours")
     fun getLearners(): Single<List<LearningLeader>>
 }

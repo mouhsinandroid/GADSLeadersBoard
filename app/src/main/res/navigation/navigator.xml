@@ -3,29 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigator"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/listLearnersFragment">
 
-    <activity
-        android:id="@+id/homeFragment"
-        android:name="com.mouhsinbourqaiba.android.gadsleadersboard.view.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_submitProjectFragment"
-            app:destination="@id/submitProjectFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_listLearnersFragment"
-            app:destination="@id/listLearnersFragment" />
-    </activity>
+<!--    <activity-->
+<!--        android:id="@+id/homeFragment"-->
+<!--        android:name="com.mouhsinbourqaiba.android.gadsleadersboard.view.home.HomeFragment"-->
+<!--        android:label="fragment_home"-->
+<!--        tools:layout="@layout/fragment_home" >-->
 
-    <fragment
-        android:id="@+id/submitProjectFragment"
-        android:name="com.mouhsinbourqaiba.android.gadsleadersboard.view.submitproject.SubmitProjectFragment"
-        android:label="fragment_submit_project"
-        tools:layout="@layout/fragment_submit_project" />
+<!--        <action-->
+<!--            android:id="@+id/action_homeFragment_to_listLearnersFragment"-->
+<!--            app:destination="@id/listLearnersFragment" />-->
+<!--    </activity>-->
+
     <fragment
         android:id="@+id/listLearnersFragment"
         android:name="com.mouhsinbourqaiba.android.gadsleadersboard.view.home.learner.ListLearnersFragment"
         android:label="fragment_list_learners"
         tools:layout="@layout/fragment_list_learners" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/submitProjectFragment"-->
+<!--        android:name="com.mouhsinbourqaiba.android.gadsleadersboard.view.submitproject.SubmitProjectFragment"-->
+<!--        android:label="fragment_submit_project"-->
+<!--        tools:layout="@layout/fragment_submit_project" />-->
+
 </navigation>
