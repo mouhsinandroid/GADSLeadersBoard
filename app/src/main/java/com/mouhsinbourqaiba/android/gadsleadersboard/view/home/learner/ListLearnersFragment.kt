@@ -21,7 +21,7 @@ class ListLearnersFragment : Fragment() {
     private val learnerListDataObserver = Observer<List<LearningLeader>> { list ->
         list?.let {
             learnersList.visibility = View.VISIBLE
-            listAdapter.updateLearnersList(it)
+            listAdapter.updateLearnersList(list.sortedByDescending { it.hours })
         }
     }
 
@@ -57,7 +57,7 @@ class ListLearnersFragment : Fragment() {
         viewModel.learners.observe(this, learnerListDataObserver)
         viewModel.loading.observe(this, loadingDataObserver)
         viewModel.loadError.observe(this, errorLiveDataObserver)
-        viewModel.refresh()
+        viewModel.refreshDataLearners()
 
         learnersList.apply {
             layoutManager = LinearLayoutManager(context)
@@ -70,7 +70,7 @@ class ListLearnersFragment : Fragment() {
             listError.visibility = View.GONE
             loadingView.visibility = View.VISIBLE
 
-            viewModel.refresh()
+            viewModel.refreshDataLearners()
 
             refreshLayoutLearner.isRefreshing = false
         }

@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/listLearnersFragment"
-        android:name="com.mouhsinbourqaiba.android.gadsleadersboard.view.home.learner.ListLearnersFragment"
+        android:name="com.mouhsinbourqaiba.android.gadsleadersboard.view.home.skilliq.ListSkillLeadersFragment"
         android:label="fragment_list_learners"
         tools:layout="@layout/fragment_list_learners" />
 

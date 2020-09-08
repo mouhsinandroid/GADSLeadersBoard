@@ -4,7 +4,6 @@ import com.mouhsinbourqaiba.android.gadsleadersboard.model.ApiServices
 import dagger.Component
 
 @Component(modules = [ApiModule::class])
-interface ApiLearnerComponent {
-
+interface ApiComponent {
     fun injectApi(services: ApiServices)
 }

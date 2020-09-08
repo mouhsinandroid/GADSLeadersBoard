@@ -33,14 +33,12 @@ class ListLearnersViewModel(application: Application): AndroidViewModel(applicat
 
     fun inject() {
         if(!injected) {
-
             DaggerViewModelComponent.builder().appModule(AppModule(getApplication()))
                 .build().injectViewLearnerServiceApi(this)
         }
-
     }
 
-    fun refresh() {
+    fun refreshDataLearners() {
         inject()
         loading.value  = true
         getLearners()

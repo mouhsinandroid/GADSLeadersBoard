@@ -1,6 +1,7 @@
 package com.mouhsinbourqaiba.android.gadsleadersboard.di
 
 import com.mouhsinbourqaiba.android.gadsleadersboard.view.home.learner.ListLearnersViewModel
+import com.mouhsinbourqaiba.android.gadsleadersboard.view.home.skilliq.ListSkillLeadersViewModel
 import dagger.Component
 import javax.inject.Singleton
 
@@ -8,4 +9,6 @@ import javax.inject.Singleton
 @Component(modules = [AppModule::class, ApiModule::class])
 interface ViewModelComponent {
     fun injectViewLearnerServiceApi(viewModel: ListLearnersViewModel)
+
+    fun injectViewSkillLeadersServiceApi(viewModel: ListSkillLeadersViewModel)
 }

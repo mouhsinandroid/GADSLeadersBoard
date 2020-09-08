@@ -30,8 +30,14 @@
     <style name="imageBadgeStyle">
         <item name="android:layout_width">70dp</item>
         <item name="android:layout_height">70dp</item>
-        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
         <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="imageBadgeStyle.width">
+        <item name="android:layout_width">100dp</item>
     </style>
 
 </resources>

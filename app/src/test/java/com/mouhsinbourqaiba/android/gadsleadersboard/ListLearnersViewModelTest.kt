@@ -54,7 +54,7 @@ class ListLearnersViewModelTest {
 
         Mockito.`when`(services.getLearners()).thenReturn(testSingle)
 
-        viewModel.refresh()
+        viewModel.refreshDataLearners()
 
         Assert.assertEquals(1, viewModel.learners.value?.size)
         Assert.assertEquals(false, viewModel.loading.value)
@@ -69,7 +69,7 @@ class ListLearnersViewModelTest {
 
         Mockito.`when`(services.getLearners()).thenReturn(testSingle)
 
-        viewModel.refresh()
+        viewModel.refreshDataLearners()
 
         Assert.assertEquals(null, viewModel.learners.value?.size)
         Assert.assertEquals(false, viewModel.loading.value)
