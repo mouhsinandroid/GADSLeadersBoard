@@ -1,7 +1,7 @@
 package com.mouhsinbourqaiba.android.gadsleadersboard.di
 
-import com.mouhsinbourqaiba.android.gadsleadersboard.model.LearnerApi
-import com.mouhsinbourqaiba.android.gadsleadersboard.model.LearnerApiService
+import com.mouhsinbourqaiba.android.gadsleadersboard.model.Apis
+import com.mouhsinbourqaiba.android.gadsleadersboard.model.ApiServices
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -13,18 +13,18 @@ open class ApiModule {
     private val BASE_URL = "https://gadsapi.herokuapp.com"
 
     @Provides
-    fun provideLearnerApi(): LearnerApi {
+    fun provideLearnerApi(): Apis {
         return  Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
-            .create(LearnerApi::class.java)
+            .create(Apis::class.java)
     }
 
     @Provides
-    open fun provideLearnerApiService(): LearnerApiService {
-        return LearnerApiService()
+    open fun provideLearnerApiService(): ApiServices {
+        return ApiServices()
     }
 
 

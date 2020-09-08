@@ -4,10 +4,10 @@ import com.mouhsinbourqaiba.android.gadsleadersboard.di.DaggerApiLearnerComponen
 import io.reactivex.Single
 import javax.inject.Inject
 
-class LearnerApiService {
+class ApiServices {
 
     @Inject
-    lateinit var api: LearnerApi
+    lateinit var api: Apis
 
     init {
         DaggerApiLearnerComponent.create().injectApi(this)

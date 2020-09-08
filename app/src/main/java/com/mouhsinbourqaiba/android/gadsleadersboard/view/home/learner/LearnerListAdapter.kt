@@ -10,9 +10,9 @@ import com.mouhsinbourqaiba.android.gadsleadersboard.model.LearningLeader
 
 class LearnerListAdapter(private val learnerList: ArrayList<LearningLeader>): RecyclerView.Adapter<LearnerListAdapter.LearnerViewHolder>() {
 
-    fun updateLearnersList(newAnimalList: List<LearningLeader>) {
+    fun updateLearnersList(newLearnerList: List<LearningLeader>) {
         learnerList.clear()
-        learnerList.addAll(newAnimalList)
+        learnerList.addAll(newLearnerList)
         notifyDataSetChanged()
     }
 

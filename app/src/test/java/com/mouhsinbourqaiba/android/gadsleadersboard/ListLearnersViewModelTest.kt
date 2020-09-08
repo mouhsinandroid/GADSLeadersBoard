@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.mouhsinbourqaiba.android.gadsleadersboard.di.AppModule
 import com.mouhsinbourqaiba.android.gadsleadersboard.di.DaggerViewModelComponent
-import com.mouhsinbourqaiba.android.gadsleadersboard.model.LearnerApiService
+import com.mouhsinbourqaiba.android.gadsleadersboard.model.ApiServices
 import com.mouhsinbourqaiba.android.gadsleadersboard.model.LearningLeader
 import com.mouhsinbourqaiba.android.gadsleadersboard.view.home.learner.ListLearnersViewModel
 import io.reactivex.Scheduler
@@ -27,7 +27,7 @@ class ListLearnersViewModelTest {
     var rule = InstantTaskExecutorRule()
 
     @Mock
-    lateinit var learnerService: LearnerApiService
+    lateinit var services: ApiServices
 
     val application = Mockito.mock(Application::class.java)
 
@@ -39,7 +39,7 @@ class ListLearnersViewModelTest {
         MockitoAnnotations.initMocks(this)
 
         DaggerViewModelComponent.builder().appModule(AppModule(application))
-            .apiModule(ApiModuleTest(learnerService))
+            .apiModule(ApiModuleTest(services))
             .build()
             .injectViewLearnerServiceApi(viewModel)
     }
@@ -52,7 +52,7 @@ class ListLearnersViewModelTest {
 
         val testSingle = Single.just(listLearners)
 
-        Mockito.`when`(learnerService.getLearners()).thenReturn(testSingle)
+        Mockito.`when`(services.getLearners()).thenReturn(testSingle)
 
         viewModel.refresh()
 
@@ -67,7 +67,7 @@ class ListLearnersViewModelTest {
 
         val testSingle = Single.error<List<LearningLeader>>(Throwable())
 
-        Mockito.`when`(learnerService.getLearners()).thenReturn(testSingle)
+        Mockito.`when`(services.getLearners()).thenReturn(testSingle)
 
         viewModel.refresh()
 

@@ -1,11 +1,11 @@
 package com.mouhsinbourqaiba.android.gadsleadersboard
 
 import com.mouhsinbourqaiba.android.gadsleadersboard.di.ApiModule
-import com.mouhsinbourqaiba.android.gadsleadersboard.model.LearnerApiService
+import com.mouhsinbourqaiba.android.gadsleadersboard.model.ApiServices
 
-class ApiModuleTest(val mockService: LearnerApiService): ApiModule() {
+class ApiModuleTest(val mockServices: ApiServices): ApiModule() {
 
-    override fun provideLearnerApiService(): LearnerApiService {
-        return mockService
+    override fun provideLearnerApiService(): ApiServices {
+        return mockServices
     }
 }

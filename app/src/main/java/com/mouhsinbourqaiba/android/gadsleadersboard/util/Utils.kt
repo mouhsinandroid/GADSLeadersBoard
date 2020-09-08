@@ -39,5 +39,10 @@ fun descLearner(view: TextView, hours: Int, country: String) {
     view.setText("$hours learning hours, $country.")
 }
 
+@BindingAdapter(value = ["score", "country"], requireAll = false)
+fun descSkillLeaders(view: TextView, score: Int, country: String) {
+    view.setText("$score skill IQ Score, $country.")
+}
+
 
 

@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.mouhsinbourqaiba.android.gadsleadersboard.di.AppModule
 import com.mouhsinbourqaiba.android.gadsleadersboard.di.DaggerViewModelComponent
-import com.mouhsinbourqaiba.android.gadsleadersboard.model.LearnerApiService
+import com.mouhsinbourqaiba.android.gadsleadersboard.model.ApiServices
 import com.mouhsinbourqaiba.android.gadsleadersboard.model.LearningLeader
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -24,7 +24,7 @@ class ListLearnersViewModel(application: Application): AndroidViewModel(applicat
     val loading by lazy { MutableLiveData<Boolean>() }
 
     @Inject
-    lateinit var apiService: LearnerApiService
+    lateinit var apiServices: ApiServices
 
     private val disposable = CompositeDisposable()
 
@@ -50,7 +50,7 @@ class ListLearnersViewModel(application: Application): AndroidViewModel(applicat
     private fun getLearners() {
 
         disposable.add(
-            apiService.getLearners()
+            apiServices.getLearners()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread()).subscribeWith(object : DisposableSingleObserver<List<LearningLeader>>(){
                     override fun onSuccess(listLearners: List<LearningLeader>) {
