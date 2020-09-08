@@ -2,23 +2,22 @@ package com.mouhsinbourqaiba.android.gadsleadersboard.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
 import com.mouhsinbourqaiba.android.gadsleadersboard.R
+import com.mouhsinbourqaiba.android.gadsleadersboard.view.home.learner.ListLearnersFragment
+import com.mouhsinbourqaiba.android.gadsleadersboard.view.home.skilliq.ListSkillLeadersFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var navController: NavController
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navController = Navigation.findNavController(this, R.id.fragmentContainer)
-        NavigationUI.setupActionBarWithNavController(this, navController)
-    }
+        setSupportActionBar(toolbar)
 
-    override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(navController, null)
+        val adapter = ViewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(ListLearnersFragment(), getString(R.string.tab_learners))
+        adapter.addFragment(ListSkillLeadersFragment(), getString(R.string.tab_skill_leaders))
+        viewPager.adapter = adapter
+        tabs.setupWithViewPager(viewPager)
     }
 }
