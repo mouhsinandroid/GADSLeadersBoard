@@ -48,4 +48,9 @@
         <item name="android:layout_width">100dp</item>
     </style>
 
+
+    <style name="SplashStyle" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
 </resources>
