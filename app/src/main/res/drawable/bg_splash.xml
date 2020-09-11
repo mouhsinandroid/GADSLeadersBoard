@@ -6,6 +6,7 @@
 
     <item
         android:drawable="@drawable/ic_logo_gads"
-        android:width="400dp"
+        android:width="300dp"
+        android:height="200dp"
         android:gravity="center" />
 </layer-list>
