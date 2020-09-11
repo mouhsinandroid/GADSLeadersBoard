@@ -69,6 +69,7 @@ class ListLearnersViewModel(application: Application): AndroidViewModel(applicat
         )
 
     }
+
     override fun onCleared() {
         super.onCleared()
         disposable.clear()

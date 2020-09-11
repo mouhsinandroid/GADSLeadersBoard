@@ -9,6 +9,9 @@ class ApiServices {
     @Inject
     lateinit var api: Apis
 
+    @Inject
+    lateinit var submitFormApi: SubmitFormApi
+
     init {
         DaggerApiComponent.create().injectApi(this)
     }
@@ -19,5 +22,9 @@ class ApiServices {
 
     fun getSkillLeaders(): Single<List<SkillIqLeader>> {
         return api.getSkillLeaders()
+    }
+
+    fun executeSubmitForm(emailAddress: String, firstName: String, lastName: String, projectLink: String): Single<Unit> {
+        return submitFormApi.submissionFormAsync(emailAddress, firstName, lastName, projectLink)
     }
 }

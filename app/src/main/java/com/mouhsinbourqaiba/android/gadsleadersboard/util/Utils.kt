@@ -1,9 +1,14 @@
 package com.mouhsinbourqaiba.android.gadsleadersboard.util
 
 import android.content.Context
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -43,6 +48,4 @@ fun descLearner(view: TextView, hours: Int, country: String) {
 fun descSkillLeaders(view: TextView, score: Int, country: String) {
     view.setText("$score skill IQ Score, $country.")
 }
-
-
 
