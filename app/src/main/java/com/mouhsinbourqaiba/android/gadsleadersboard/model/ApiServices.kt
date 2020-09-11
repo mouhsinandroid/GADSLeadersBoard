@@ -2,6 +2,7 @@ package com.mouhsinbourqaiba.android.gadsleadersboard.model
 
 import com.mouhsinbourqaiba.android.gadsleadersboard.di.DaggerApiComponent
 import io.reactivex.Single
+import retrofit2.Call
 import javax.inject.Inject
 
 class ApiServices {
@@ -24,7 +25,7 @@ class ApiServices {
         return api.getSkillLeaders()
     }
 
-    fun executeSubmitForm(emailAddress: String, firstName: String, lastName: String, projectLink: String): Single<Unit> {
+    fun executeSubmitForm(emailAddress: String, firstName: String, lastName: String, projectLink: String): Call<Void> {
         return submitFormApi.submissionFormAsync(emailAddress, firstName, lastName, projectLink)
     }
 }

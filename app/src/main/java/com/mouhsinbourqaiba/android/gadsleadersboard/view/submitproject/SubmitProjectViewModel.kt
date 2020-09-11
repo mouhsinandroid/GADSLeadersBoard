@@ -1,17 +1,14 @@
 package com.mouhsinbourqaiba.android.gadsleadersboard.view.submitproject
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.mouhsinbourqaiba.android.gadsleadersboard.di.AppModule
 import com.mouhsinbourqaiba.android.gadsleadersboard.di.DaggerViewModelComponent
 import com.mouhsinbourqaiba.android.gadsleadersboard.model.ApiServices
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
-import org.reactivestreams.Subscriber
-import org.reactivestreams.Subscription
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import javax.inject.Inject
 
 
@@ -24,8 +21,6 @@ class SubmitProjectViewModel(application: Application): AndroidViewModel(applica
     @Inject
     lateinit var apiServices: ApiServices
 
-    private val disposable = CompositeDisposable()
-
     init {
         DaggerViewModelComponent.builder().appModule(AppModule(getApplication()))
             .build().injectViewSubmitFormServiceApi(this)
@@ -37,31 +32,38 @@ class SubmitProjectViewModel(application: Application): AndroidViewModel(applica
         lastName: String,
         projectLink: String
     ) {
+        loadingStatus.value = true
+        apiServices.executeSubmitForm(emailAddress, firstName, lastName, projectLink).enqueue(object:
+            Callback<Void> {
 
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                println("Submission Failure: ${t.message}")
+                errorStatus.value = true
+                successStatus.value = false
+                loadingStatus.value = false
+            }
 
-//        disposable.add(
-//            apiServices.executeSubmitForm(emailAddress, firstName, lastName, projectLink)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .unsubscribeOn(Schedulers.io())
-//                .subscribe(
-//                    { result -> Log.v("POSTED FORM", "" + result) },
-//                    { error -> Log.e("ERROR", error.message + error.stackTrace) }
-//                )
-//        )
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
 
+                if(response.isSuccessful){
+                    println("Submission isSuccessful: ${response.body()}")
+                    errorStatus.value = false
+                    successStatus.value = true
+                    loadingStatus.value = false
 
-        apiServices.executeSubmitForm(emailAddress, firstName, lastName, projectLink).subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                    { result -> Log.v("POSTED FORM", "" + result) },
-                    { error -> Log.e("ERROR", error.message + error.stackTrace) }
-                )
+                }else{
+                    println("Submission Fail: ${response.body()}")
+                    errorStatus.value = true
+                    successStatus.value = false
+                    loadingStatus.value = false
+                }
+
+            }
+        })
     }
 
     override fun onCleared() {
         super.onCleared()
-        disposable.clear()
     }
 
 }
