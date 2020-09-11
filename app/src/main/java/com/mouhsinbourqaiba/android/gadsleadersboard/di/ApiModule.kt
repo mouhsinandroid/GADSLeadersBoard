@@ -1,6 +1,5 @@
 package com.mouhsinbourqaiba.android.gadsleadersboard.di
 
-import com.google.gson.GsonBuilder
 import com.mouhsinbourqaiba.android.gadsleadersboard.model.ApiServices
 import com.mouhsinbourqaiba.android.gadsleadersboard.model.Apis
 import com.mouhsinbourqaiba.android.gadsleadersboard.model.SubmitFormApi

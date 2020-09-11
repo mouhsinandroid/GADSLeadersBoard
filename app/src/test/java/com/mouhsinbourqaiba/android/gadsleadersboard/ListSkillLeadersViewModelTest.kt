@@ -29,9 +29,9 @@ class ListSkillLeadersViewModelTest {
     @Mock
     lateinit var services: ApiServices
 
-    val application = Mockito.mock(Application::class.java)
+    private val application = Mockito.mock(Application::class.java)
 
-    var viewModel = ListSkillLeadersViewModel(application, true)
+    private var viewModel = ListSkillLeadersViewModel(application, true)
 
 
     @Before
@@ -82,7 +82,7 @@ class ListSkillLeadersViewModelTest {
     fun setupRxSchedulers() {
         val immediate = object : Scheduler() {
             override fun createWorker(): Worker {
-                return ExecutorScheduler.ExecutorWorker(Executor { it.run()}, true)
+                return ExecutorScheduler.ExecutorWorker({ it.run()}, true)
             }
         }
 

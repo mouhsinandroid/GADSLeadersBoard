@@ -2,11 +2,8 @@ package com.mouhsinbourqaiba.android.gadsleadersboard.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.widget.Toast
 import com.mouhsinbourqaiba.android.gadsleadersboard.R
-import com.mouhsinbourqaiba.android.gadsleadersboard.util.actionGoTo
-import com.mouhsinbourqaiba.android.gadsleadersboard.util.actionGoTo.addFragment
+import com.mouhsinbourqaiba.android.gadsleadersboard.util.actionGo.addFragment
 import com.mouhsinbourqaiba.android.gadsleadersboard.view.home.learner.ListLearnersFragment
 import com.mouhsinbourqaiba.android.gadsleadersboard.view.home.skilliq.ListSkillLeadersFragment
 import com.mouhsinbourqaiba.android.gadsleadersboard.view.submitproject.SubmitProjectFragment

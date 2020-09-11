@@ -30,7 +30,7 @@ class ListSkillLeadersViewModel(application: Application): AndroidViewModel(appl
 
     private var injected = false
 
-    fun inject() {
+    private fun inject() {
         if(!injected) {
             DaggerViewModelComponent.builder().appModule(AppModule(getApplication()))
                 .build().injectViewSkillLeadersServiceApi(this)

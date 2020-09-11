@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 
-object actionGoTo {
+object actionGo {
 
     fun addFragment(
         activity: AppCompatActivity,

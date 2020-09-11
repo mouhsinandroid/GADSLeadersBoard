@@ -19,7 +19,6 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
-import java.util.concurrent.Executor
 
 class ListLearnersViewModelTest {
 
@@ -29,9 +28,9 @@ class ListLearnersViewModelTest {
     @Mock
     lateinit var services: ApiServices
 
-    val application = Mockito.mock(Application::class.java)
+    private val application = Mockito.mock(Application::class.java)
 
-    var viewModel = ListLearnersViewModel(application, true)
+    private var viewModel = ListLearnersViewModel(application, true)
 
 
     @Before
@@ -82,7 +81,7 @@ class ListLearnersViewModelTest {
     fun setupRxSchedulers() {
         val immediate = object : Scheduler() {
             override fun createWorker(): Worker {
-                return ExecutorScheduler.ExecutorWorker(Executor { it.run()}, true)
+                return ExecutorScheduler.ExecutorWorker({ it.run()}, true)
             }
         }
 

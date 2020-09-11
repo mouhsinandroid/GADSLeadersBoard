@@ -31,7 +31,7 @@ class ListLearnersViewModel(application: Application): AndroidViewModel(applicat
     private var injected = false
 
 
-    fun inject() {
+    private fun inject() {
         if(!injected) {
             DaggerViewModelComponent.builder().appModule(AppModule(getApplication()))
                 .build().injectViewLearnerServiceApi(this)

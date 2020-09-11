@@ -6,15 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.mouhsinbourqaiba.android.gadsleadersboard.R
-import com.mouhsinbourqaiba.android.gadsleadersboard.model.SkillIqLeader
-import kotlinx.android.synthetic.main.fragment_list_learners.*
-import kotlinx.android.synthetic.main.fragment_list_skill_leaders.*
-import kotlinx.android.synthetic.main.fragment_list_skill_leaders.listError
-import kotlinx.android.synthetic.main.fragment_list_skill_leaders.loadingView
 import kotlinx.android.synthetic.main.fragment_submit_project.*
 
 
